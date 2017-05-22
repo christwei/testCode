@@ -1,0 +1,36 @@
+package com.reflector;
+
+public class ObjectCasting {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Person person1 = new Person("tang");
+		Person person2 = castObject(Person.class, person1);
+	}
+
+	
+	/**
+	 * @param clazz
+	 * @param obj
+	 * @return
+	 */
+	private static <E>E castObject(Class<?> clazz, Object obj) {
+	   
+		E realObj = (E)clazz.cast(obj);
+		
+		return realObj;
+		// TODO Auto-generated method stub
+		
+	}
+	
+	static class Person {
+		private String name;
+		public Person(String name) {
+			this.name = name;
+		}
+	}
+
+}
