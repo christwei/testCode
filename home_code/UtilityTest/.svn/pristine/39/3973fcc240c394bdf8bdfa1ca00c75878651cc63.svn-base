@@ -1,0 +1,52 @@
+package com.reflector;
+
+public class ClassReflecting {
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        //Class<Mobile> mob = null;
+
+       // mob = (Class<Mobile>) Class.forName("Mobile");
+        
+        Class<?> mob = null;
+        
+        try {
+            // 类加载形成class
+            mob = Class.forName("com.reflector.Mobile");
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return;
+        }
+        
+        try {
+            // 对象实例化
+            Mobile mb = (Mobile) mob.newInstance();
+            mb.setName("tang");
+        } catch (InstantiationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        
+    }
+
+}
+
+class Mobile {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
